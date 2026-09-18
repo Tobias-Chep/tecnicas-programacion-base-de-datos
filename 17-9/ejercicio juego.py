@@ -4,35 +4,37 @@
 
 import random
 
-seguir_jugando = True
-numero_previo = random.randint(1, 100)
-numero_siguiente = random.randint(1, 100)
+jugar = True
+numero_actual = random.randint(1, 100)
 
-while (seguir_jugando):
-    
-    print(f"{numero_previo} es el número actual.\n")
 
-    adivinar = input("¿El número siguiente será menor o mayor?\nMayor\nMenor\n").lower()
+while (jugar):
 
-    print(f"El número siguiente es: {numero_siguiente}.")
-    if (adivinar == "menor" and numero_siguiente < numero_previo):
-        print("¡Correcto!")
-    elif (adivinar == "menor" and numero_siguiente > numero_previo):
-        print("Incorrecto.")
-    elif (adivinar == "mayor" and numero_siguiente < numero_previo):
-        print("Incorrecto.")
+    input_usuario = ""
+    numero_siguiente = random.randint(1, 100)
+
+    while (input_usuario not in ("MAYOR", "MENOR")):
+        print(f"\nEl número actual es {numero_actual}.")
+        print(f"¿El siguiente número será mayor o menor?\n")
+        input_usuario = input("MAYOR\nMENOR\n\n").upper()
+
+    if (numero_siguiente > numero_actual):
+        if (input_usuario == "MAYOR"):
+            print(f"¡Correcto!\nEl número siguiente ({numero_siguiente}) es mayor al número actual ({numero_actual}).")
+        elif (input_usuario == "MENOR"):
+            print(f"¡Incorrecto!\nEl número siguiente ({numero_siguiente}) es mayor al número actual ({numero_actual})")
+    elif (numero_siguiente < numero_actual):
+        if (input_usuario == "MAYOR"):
+            print(f"¡Incorrecto!\nEl número siguiente ({numero_siguiente}) es menor al número actual ({numero_actual}).")
+        elif (input_usuario == "MENOR"):
+            print(f"¡Correcto!\nEl número siguiente ({numero_siguiente}) es menor al número actual ({numero_actual})")
+
+    numero_actual = numero_siguiente
+
+    seguir_jugando = ""
+    while (seguir_jugando not in ("SI", "NO")):
+        seguir_jugando = input("\n¿Quiere seguir jugando?\nSÍ\nNO\n\n").upper()
+    if (seguir_jugando == "SI"):
+        jugar
     else:
-        print("¡Correcto!")
-
-    jugar_de_nuevo = input("\n¿Seguir jugando?\nSI\nNO\n").lower()
-    
-    numero_previo = numero_siguiente
-
-    if (jugar_de_nuevo == "si"):
-        seguir_jugando = True
-    elif (jugar_de_nuevo == "no"):
-        seguir_jugando = False
-        
-
-numero_previo = numero_siguiente
-    
+        break
