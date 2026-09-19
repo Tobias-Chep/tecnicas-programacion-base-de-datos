@@ -6,3 +6,8 @@
 # min() se encarga de sustraer el dato  menor
 # avg() saca el promedio
 # suma() agarra todos los valores de un campo (int) y los suma. sirve para campos como stock, precio
+
+# ejmeplo:
+# SELECT universo, count(id_superheroe) AS cantidad_superheroes FROM superheroes GROUP BY universo;
+
+# SELECT ciudad, count(id_superheroe) AS cantidad_superheroes FROM superheroes GROUP BY ciudad;
