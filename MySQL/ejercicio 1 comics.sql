@@ -90,6 +90,10 @@ SELECT * FROM superheroes WHERE universo = "Marvel" and puntuacion BETWEEN 9.0 A
 # t) Mostrar los superhéroes cuyo nombre contenga la letra a y cuya puntuación esté entre 8.5 y 9.5.
 SELECT * FROM superheroes WHERE nombre LIKE "%a%" AND puntuacion BETWEEN 8.5 AND 9.5;
 
+# USANDO LAS FUNCIONES SQL NATIVAS
+SELECT min(año_aparicion) FROM superheroes;
+
+
 # APRENDÍ HOY:
 # BETWEEN X AND Z : toma "entre" incluyendo los límites
 # IN (X, Y, Z) : toma sólo si está en esos casos
